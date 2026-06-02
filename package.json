@@ -1,0 +1,21 @@
+{
+  "name": "cyber-exotic-engine",
+  "version": "7.5.0",
+  "description": "Cyber Exotic WhatsApp Bot",
+  "main": "BOT 100.js",
+  "type": "module",
+  "scripts": {
+    "start": "node BOT 100.js",
+    "dev": "node --watch BOT 100.js"
+  },
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "@whiskeysockets/baileys": "^7.0.0-rc13",
+    "express": "^4.21.2",
+    "p-queue": "^8.0.1",
+    "pino": "^9.6.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
