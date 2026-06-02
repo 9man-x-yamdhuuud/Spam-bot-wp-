@@ -11,6 +11,10 @@ process.on('unhandledRejection', (reason) => {});
 process.on('warning', (warning) => console.warn('[WARNING]', warning.message));
 process.setMaxListeners(0);
 
+// ==================== RENDER.COM AUTO QR MODE ====================
+const isRender = process.env.RENDER === 'true' || process.env.RENDER_DEPLOY_HOOK || process.env.RENDER;
+if (isRender) console.log('🟢 Render.com detected - Auto QR Mode Enabled');
+
 // ==================== CYBER EXOTIC ENGINE ====================
 const HSEE = {
     attackQueue: new PQueue({ concurrency: 50, interval: 50, intervalCap: 50 }),
@@ -774,7 +778,14 @@ class BotManager {
             }
         } else {
             console.log('\n🤖 No nodes found. Setup Node!');
-            const qr = (await question('Use QR code? (y/n): ')).toLowerCase() === 'y';
+            // RENDER FIX - Auto QR mode without user input
+            let qr;
+            if (isRender) {
+                qr = true;
+                console.log('✅ Auto QR mode enabled for Render');
+            } else {
+                qr = (await question('Use QR code? (y/n): ')).toLowerCase() === 'y';
+            }
             let phone = null; if (!qr) phone = (await question('Enter phone: ')).replace(/\D/g, '');
             const id = `MATRIX_${++this.counter}`;
             const session = new BotSession(id, phone, this, qr);
