@@ -1,20 +1,29 @@
 {
   "name": "cyber-exotic-engine",
   "version": "7.5.0",
-  "description": "Cyber Exotic WhatsApp Bot",
-  "main": "BOT 100.js",
+  "description": "Cyber Exotic WhatsApp Bot - Multi-Device Pairing System for Render",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node BOT 100.js",
-    "dev": "node --watch BOT 100.js"
+    "start": "node index.js",
+    "dev": "node --watch index.js"
   },
   "dependencies": {
     "@hapi/boom": "^10.0.1",
-    "@whiskeysockets/baileys": "^7.0.0-rc13",
-    "express": "^4.21.2",
-    "p-queue": "^8.0.1",
-    "pino": "^9.6.0"
+    "@whiskeysockets/baileys": "^6.7.0",
+    "express": "^4.18.2",
+    "p-queue": "^7.3.4",
+    "pino": "^8.14.1"
   },
+  "keywords": [
+    "whatsapp-bot",
+    "baileys",
+    "pairing-code",
+    "cyber-exotic",
+    "render-deploy"
+  ],
+  "author": "Cyber Exotic",
+  "license": "MIT",
   "engines": {
     "node": ">=18.0.0"
   }
